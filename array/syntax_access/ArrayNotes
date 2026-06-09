@@ -1,0 +1,28 @@
+Arrays:
+	Array is a container which is used to store collection of elements with same data type
+	Array used to store multiple values in a single variable.
+	Store data based on index.
+	Index will start from "0".
+	When u create an empty array and do not assign value to the array, default value will be stored.
+	Arrays are fixed in size — once created, you cannot change their length.
+	Memory allocated in Heap to store the elements of the array.
+	Memory allocated in stack to store the variables /references.
+	
+Array declaration:
+	data_type[] variableName;
+Array creation:
+	variableName=new data_type[size];  //size should be positive integer
+	
+Array declaration + creation:	
+	data_type[] variableName=new data_type[size];
+	int[] arr=new int[3];
+		
+Initialize the array:
+	arr[0]=1;
+	arr[1]=2;
+	arr[2]=3;
+	arr[3]=4; -->array index out of bound exception
+	
+Types of Array:
+	1. Single dimension
+	2. Multi dimension
