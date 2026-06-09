@@ -1,0 +1,6 @@
+Stack memory: 
+	It is used for storing local variables and function calls and has a fixed size. 
+	It is fast and efficient, but can only be used for storing short-lived data. 
+Heap memory: 
+	It is used for storing objects and class instances 
+	It is dynamically allocated at runtime.

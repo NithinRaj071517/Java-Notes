@@ -1,0 +1,52 @@
+List:
+	List is an Interface in Java extends the Collection Interface.
+	List represent ordered collections that allow duplicate elements and positional access.
+	List is a Single dimensional collection
+
+Common implementation classes of List Interface:
+	1. ArrayList
+		--> ArrayList<E> is a resizable array implementation of the List interface
+		--> ArrayList is not synchronized and Multi-Thread is not safe
+		--> Want Random access use ArrayList 
+		--> Best for search operation and worst for insertion & deletion operation
+		--> Stores insertion order
+		--> Allows duplicate insertion
+		--> Allows to add null value
+		--> arraylistname.add(value) -->  it will add value in arrayList
+		--> arraylistname.size()-->Provides size of the array
+		--> arraylistname.add(index,value) -->  it will add the value in the index place
+		--> arraylistname.get(indexValue)  --> Provides the value of the particular index
+		--> arraylistname.indexOf(value)  --> Provides the index of the particular value and also Provides the index of the first value if duplicate present
+		--> arraylistname.LastIndexOf(value)  --> Provides the index of the last  value 
+		--> arraylistname2.add(arraylistname) -->  it will add all the value from another arrayList
+		--> arraylistname.clear() -->  Clear all the values from the arrayList
+		--> arraylistname.remove(index) -->  Removes based on index
+		--> arraylistname.remove("value") -->  Removes based on values
+		--> arraylistname.set(index,"value") --> Replaces the value
+		--> arraylistname.isEmpty() --> Provide true if list is empty
+		
+		
+	2. LinkedList
+		--> LinkedList<E> is a doubly linked list implementation of the List interface
+		--> Want frequent middle insertions/deletions use LinkedList
+		--> LinkedList is not synchronized and Multi-Thread is not safe
+		--> Best for insertion & deletion operation and worst for search operation
+		--> Stores insertion order
+		--> Allows duplicate insertion
+		--> Allows to add null value 
+		--> linkedlist.add() --> To add values in LinkedList
+		--> linked.addFirst()-->To add values in LinkedList first position
+		--> linked.addLast() -->To add values in LinkedList last position
+		--> linked.get(index))--> Get  the value of particular index
+		--> linked.getFirst(index))--> Get  the value of first index
+		--> linked.getLast(index))--> Get  the value of last index
+		--> linked.removeFirst()-->Remove first element
+		--> linked.removeLast()-->Remove last element
+		--> linked.remove(index)-->Remove particular index element
+		--> linked.removeFirstOccurrence(elementValue)-->Remove first occurrence of the particular element
+		--> linked.removeLastOccurrence(elementValue)-->Remove last occurrence of the particular element
+		--> linked.poll()-->Remove first element
+		--> linked.pollFirst()-->Remove first element
+		--> linked.pollLast()-->Remove last element	
+	3. Vector 
+	4. Stack

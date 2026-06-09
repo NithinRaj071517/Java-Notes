@@ -1,0 +1,37 @@
+Map:
+	Map is not child interface of Collection , so it is not true collection.
+	It represents data in key -value pair
+	Duplicate keys not allowed
+	Duplicate values allowed
+	
+	
+	
+Map  (separate hierarchy)  -->HashMap,LinkedHashMap,TreeMap,HashTable(legacy)
+
+
+Common implementation classes of Map Interface:
+	1. HashMap
+			--> HashMap is a class  implementation of the Map interface
+			--> Insertion order not maintained
+			--> Duplicates key not allowed but duplicate values allowed
+			--> Allows  null value
+			--> Hashing technique used to store elements
+			--> Value can be fetched using its key
+			--> Not synchronized
+			--> Heterogenious is allowed if generic is not specified  
+	2. LinkedHashMap
+			--> LinkedHashMap is a class  implementation of the Map interface
+			--> Insertion order  maintained
+			--> Duplicates key not allowed but duplicate values allowed
+			--> Allows null value
+			--> Hashing technique used to store elements
+			--> Value can be fetched using its key
+			--> Not synchronized
+			--> Heterogenious is allowed if generic is not specified  
+	3. TreeMap	
+			--> TreeMap is a class  implementation of the Map interface
+			--> Natural sorting order maintained
+			--> Duplicates key not allowed but duplicate values allowed
+			--> Null not allows
+			--> Heterogenious is not allowed even if generic is not specified			
+			

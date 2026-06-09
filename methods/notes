@@ -1,0 +1,35 @@
+Methods:
+	It is block of code that is used to perform certain actions.
+	It is also known as functions.
+	Mostly used to perform any repetitive tasks
+	Method must be a member of some class.
+	Return Should be end of the method.
+	
+	Syntax:
+			accessModifier returnType methodName (arguments)
+				{
+				
+				}
+
+Access Modifiers:
+		It is the restriction to access.
+		used to restrict the visibility of classes, fields, methods, and constructors.
+		
+		
+	Four types of access modifiers:
+        Public
+        	Accessible from anywhere in the program.
+			Use public for methods/classes that need to be accessible globally
+        Protected
+        	Accessible Within the same package
+			In subclasses (even in different packages)
+		Default
+			When no access modifier is specified.
+			Accessible only within the same package.
+			Also called package-private.
+		Private
+			Accessible only within the same class.
+			Use private for encapsulation (hiding internal implementation).
+		
+		
+				

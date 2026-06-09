@@ -1,0 +1,31 @@
+String:
+	An object that represents sequence of characters values.
+	Immutable -once created, contents can’t change.  
+	Able to create string in two ways
+		1. Using String Literal
+			(*)When you create a string using string literal, it is stored in the String Constant pool memory, 
+			   and if another string with the same value exists, it reuses the reference.
+			(*)Consume low  Memory space.
+		2. Using new keyword
+			(*)When you create a string using string object, it is stored in the heap memory and, 
+			   will create the new reference.			  	
+	A string acts the same as an array of characters.
+	Not Thread safe 
+
+String Buffer:
+	An object that represents sequence of characters values.
+	Mutable -once created, contents can change.  
+	Thread-safe
+	All public methods are synchronized	& Safe for Multi-threaded environments
+	Able to create in new keyword
+	Slower than StringBuilder due to synchronization
+	
+	
+String Builder:
+	An object that represents sequence of characters values.
+	Mutable -once created, contents can change.  
+	Not Thread-safe
+	All public methods are non- synchronized and not  Safe for Multi-threaded environments
+	Able to create in new keyword
+	Faster than StringBuffer,String due to synchronization
+	All methods used in string buffer able to perform in String builder	

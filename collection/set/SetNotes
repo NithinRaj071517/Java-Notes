@@ -1,0 +1,26 @@
+Set:
+	Set is an Interface in Java extends the Collection Interface.
+	Set represent unordered collections that does not allow duplicate elements and no positional access.
+	Set is a Single dimensional collection
+	
+Common implementation classes of Set Interface:
+	1. HashSet	
+			--> HashSet is a re-sizable array implementation of the Set interface
+			--> Insertion order not maintained
+			--> Duplicates not allowed
+			--> Allows to add  null value
+			--> Data stored based on Hash code , so search is very effective
+			--> Not synchronized
+			--> Heterogeneous is allowed if generic is not specified  
+	2. LinkedHashSet	
+			--> LinkedHashSet is a re-sizable array implementation of the Set interface
+			--> Insertion order maintained
+			--> Duplicates not allowed
+			--> Allows to add  null value
+			--> Heterogeneous is allowed if generic is not specified
+	3. TreeSet	
+			--> TreeSet is a re-sizable array implementation of the SortedSet and Navigatableset interface
+			--> Natural sorting order maintained
+			--> Duplicates not allowed
+			--> Null not allows
+			--> Heterogeneous is not allowed even if generic is not specified	

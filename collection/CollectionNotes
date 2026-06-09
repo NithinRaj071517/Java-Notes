@@ -1,0 +1,15 @@
+Collections:
+	Collections is an architecture to store, retrieve, manipulate, and process groups of objects efficiently.
+	Collection is a concept of storing multiple data into a single variable	based on some condition.
+	Array is size fixed while creation whereas collection may grows or shrinks( dynamic in size).
+	
+	
+Iterable
+   |
+Collection
+   ├── List --> ArrayList,LinkedList,Vector(legacy),Stack(legacy)
+   ├── Set  --> HashSet,LinkedHashSet,TreeSet
+   └── Queue
+
+
+Map  (separate hierarchy)  -->HashMap,LinkedHashMap,TreeMap,HashTable(legacy)
