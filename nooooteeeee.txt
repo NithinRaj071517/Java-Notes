@@ -1,0 +1,195 @@
+FindElement & FindElements
+-------------------------
+	Definition
+		findElement() → Used to locate a single WebElement on the webpage
+					    return type WebElement
+						returns the first matched elements
+						Throws NoSuchElementException
+						Single element actions
+		findElements() → Used to locate multiple WebElements, returns a list
+						return type List of WebElement
+						Returns all matched elements
+						Returns empty list
+						List handling (tables, dropdowns)
+Waits:
+------
+	Definition:
+		Waits in Selenium are used to synchronize the WebDriver with the application, ensuring that elements are loaded or visible before interaction, instead of failing immediately.
+		
+	Types:
+		1. Implicit Wait
+			Global wait applied to all elements
+			Set once for entire driver session
+			
+		2. Explicit wait
+			Applied to specific element with some condition
+			
+		3. Fluent wait
+			Similar to explicit wait with polling frequency and Exception ignoring
+			
+StaleElementReferenceException:
+------------------------------			
+	Definition:
+		StaleElementReferenceException occurs when a WebElement reference becomes invalid, meaning the element is no longer attached to the current DOM.			
+	Causes:
+		1. Page refresh
+		2. DOM updated due to AJAX
+		3. Element removed or recreated
+		3. Element removed or recreated
+		4. Switching frames or windows
+		
+	Solutions:
+		1. Relocate the element
+		2. Use explicit wait 
+		3. Try catch retry logic
+		
+	Examples:
+		After clicking "Save", page refreshes → element becomes stale → need to re-locate before next action.
+		
+		
+Page Object Model:
+------------------
+    Definition:
+		Page Object Model (POM) is a design pattern where each web page is represented as a separate class, containing web elements (locators) and methods (actions) for that page.
+	
+	Uses:
+		 Improves code reusability
+		 Enhances maintainability
+		 Reduces code duplication
+		 Improves readability & scalability
+		 
+		If UI changes → update only in one place
+		
+Path Parameter & Query Parameter:
+---------------------------------
+	Definition:
+		Path Parameter - Used to identify a specific resource
+						 Present as part of the URL path
+						 path param is mandatory
+						/customer/12
+			
+		Query Parameter	- Used to filter or modify the request
+						 Appended after ? in URL
+						 /customer?status=active
+						 query param is optional for filtering
+						 
+						 
+Java Collection Framework:
+-------------------------
+	Definition:
+		JCF is a set of interfaces and classes used to store , manage and manipulate group of objects dynamically .
+		
+	Uses:
+		To handle dynamic data (unlike arrays)
+		Provides built-in algorithms (sorting, searching)
+		Improves code reusability and performance
+		Helps in data organization using different structures (List, Set, Map)	
+		
+	Core Interfaces of JCF:
+		1. List -->  To store multiple elements (findElements)
+		2. Set  --> To handle unique window handles
+		3. Map (part of framework but not child of Collection)  --> To store test data (key-value pairs like username/password)
+		4. Queue
+		
+		
+ArrayList and LinkedList:
+------------------------		
+
+	Definition:
+		ArrayList and LinkedList are implementation classes of the List interface used to store ordered and dynamic collections of elements.
+
+	ArrayList:
+		1. It is an dynamic array
+		2. Its access time is fast
+		3. Insertion/Deletion is slow
+		4. Uses a resizable array
+		5. When capacity is full → creates a new array (approx 1.5x size) and copies elements
+		6. It follows the insertion order and allows duplicates
+	 
+
+	LinkedList:
+		1. It is doubly linked list(node based)
+		2. Its access time is slow 
+		3. Insertion/Deletion is fast 
+		4. Uses nodes (each node has data + next + previous reference)
+		5. No shifting required during insert/delete
+		6. It follows the insertion order and allows duplicates
+
+
+HashSet & HashMap:
+-----------------
+	Definition:
+		HashSet is  implementation classes of the Set interface , stores unique elements
+		HashMap is  implementation classes of the Map interface , stores key-value pairs
+
+	HashSet:
+		1. Stores only value
+		2. Insertion order not maintained 
+		3. Duplicates are not allowed 
+		4. Allows to add one null value
+		5. Uses HashMap internally
+	 
+
+	HashMap:
+		1. Stores  key value pair representation 
+		2. Insertion order not maintained 
+		3. Duplicates Keys are not allowed but duplicate values allowed 
+		4. Allows one null value in key & multiple null values
+		5. HashMap works based on hashcode() and equals() for fast retrieval
+
+	HashSet is used in window handling for unique window ID
+	and HashMap used in test data assigning like user name & password 
+	
+	
+Array:
+------
+	Definition:
+		An Array in Java is a data structure used to store multiple values of the same data type in a single variable, where each element is accessed using an index.
+
+	Uses:
+		1. Store multiple values efficiently
+		2. Provides fast access
+		3. Reduce the need of multiple variables.
+		4. Useful when data is fixed 
+		
+	Example:
+		In a banking system, if we want to store the last 5 transaction amounts of a user, we can use an array instead of creating separate variables.
+		
+		
+Array Vs ArrayList:
+------------------
+	Definition:
+		Array: Fixed-size data structure to store same type elements
+		ArrayList: Dynamic array from Java Collections Framework which can grow or shrink automatically
+		
+		
+	Array:
+		Fixed-size in size
+		Faster access
+		Supports primitive data type
+		Less flexible
+		Core Java Framework
+		
+	ArrayList:
+		Dynamic in size 
+		Slightly slower compared to Array
+		Supports objects
+		More flexible
+		Collection Framework
+				
+				
+	Array → Store top 5 recent transactions (fixed size)
+	ArrayList → Store all transactions (grows dynamically as user keeps transacting)	
+
+Memory Allocation:
+-------------------
+	In Java, array memory is managed using both Stack and Heap
+		Stack memory --> Heap stores reference 
+		Heap memory --> Heap stores elements
+	
+	int[] arr = new int[3];
+		arr --> reference varaible --> stack memory
+		int[3] --> creates 3 elements in array --> heap memory
+	  
+	Heap allocates continuous memory location , so accessing is faster .
+	Supports index based access
