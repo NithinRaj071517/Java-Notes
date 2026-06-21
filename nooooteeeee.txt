@@ -19,6 +19,7 @@ Waits:
 	Types:
 		1. Implicit Wait
 			Global wait applied to all elements
+			WebDriver waits up to the specified time before throwing NoSuchElementException
 			Set once for entire driver session
 			
 		2. Explicit wait
@@ -193,3 +194,64 @@ Memory Allocation:
 	  
 	Heap allocates continuous memory location , so accessing is faster .
 	Supports index based access
+	
+	
+Selenium WebDriver:
+------------------
+	Definition:
+		Selenium WebDriver is an open-source automation API that allows direct interaction with web browsers by communicating with browser-specific drivers to automate web applications.
+		
+	Uses:
+		To automate functioanl and regression testing.
+		Supports multiple web browsers.
+		Supports multiple programming language.
+		
+	Examples:
+		Selenium WebDriver is used to automate:
+			Login flows
+			Order placement
+			
+Select Dropdown:
+---------------
+	Definition:
+		Select class is used to handle dropdown elements that are created using the <select> HTML tag.
+		The Select class supports dropdown handling only when the tag name is <select>
+		If the dropdown is not built using <select>, then we handle them using normal click actions or Actions class.
+		
+	Select options using:
+		selectByVisibleText() – based on displayed text
+		selectByValue() – based on value attribute
+		selectByIndex() – based on index position
+		isSelected() --> returns true if dropdown value selected 
+		getOptions()--> method of the Select class to retrieve all available options from a dropdown and return List of WebElement
+		getAllSelectedOptions()->  method gives all selected options
+		
+	Multiple Select:	
+		In selenium, we can check whether a dropdown supports multiple selection using the isMultiple() method of the Select class.	
+		If the <select> tag contains the multiple attribute, then the dropdown allows selecting multiple values.
+		Deselect operations are supported only for multi-select dropdowns, not for single-select dropdowns.
+			isMultiple() method --> Used to check it supports multi-select
+			sel.deselectByIndex(1);
+			sel.deselectByValue("IN");
+			sel.deselectAll();
+			
+			
+ScreenShot:
+-----------
+	Definition:
+		In Selenium, screenshots are used to capture the current state of the application during execution.
+		Selenium provides the TakesScreenshot interface to capture screenshots and getScreenshotAs method used 
+		We can capture:
+			Entire visible browser screen
+			Specific WebElement
+	Uses:
+		Capturing failed test cases
+		Debugging issues
+		Providing evidence in reports
+			
+	TestNG – Failed Test Cases Screenshot
+		In TestNG, we use Listeners by implementing the ITestListener interface.
+		Screenshot logic is written inside the onTestFailure() method, which automatically triggers whenever a test fails.
+	Cucumber – Failed Test Cases Screenshot
+		In Cucumber, screenshots are captured inside the Hooks class using the @After hook.
+		We check scenario.isFailed() and then attach the screenshot to the report.		
