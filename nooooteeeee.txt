@@ -335,3 +335,130 @@ Locators:
 			Locating elements using text
 			Traversing from child to parent
 			Handling complex dynamic elements
+			
+			
+String:
+------
+	Definition:
+		String in Java 	is an object that represents sequence of characters, implemented using String class from java.lang package.
+		Strings are immutable, meaning once created, their value cannot be changed. If any modification is performed, a new object is created instead of modifying the existing one.
+		
+	Memory allocation:
+		String literals are stored in the String Constant Pool (SCP) inside the heap. If the same value already exists, JVM reuses the reference to optimize memory.
+		
+		String objects (new keyword) are always created in the heap memory, even if the value already exists.
+			
+			String s1 = "Test";
+			String s2 = "Test";  // same reference from SCP
+			String s3 = new String("Test"); // new object in heap
+			
+	Reason for immutability:
+		Security (important for URLs, DB connections)
+		Caching (String pool reuse)
+		Thread safety (no synchronization required)		
+		
+		
+
+String vs String Buffer vs String Builder:
+-----------------------------------------
+	Definition:
+		String, StringBuffer, and StringBuilder are classes used to represent sequences of characters in Java, but they differ in mutability, thread safety, and performance.
+		
+	
+	Difference:
+		1. String:
+			Immutable
+			Thread safe
+			Stored in Sting Constant Pool
+			
+		2. String Buffer:
+			Mutable
+			Thread safe
+			Slower due to synchronization overhead.
+		
+		3. String Builder:
+			Mutable
+			Not Thread safe
+			Faster due to no synchronization .
+			
+== vs .equals():
+---------------
+	Definition:
+		In Java, == and .equals() are used to compare strings, but they behave differently.
+		
+	== (Operator):
+		Compares memory reference
+		Checks whether both references point to the same object
+		
+	.equals() :
+		Compares actual content (value) of strings
+		Overridden in String class
+		
+
+Access Modifiers:
+----------------
+	Definition:
+		Access Modifiers in Java are used to control the visibility and accessibility of classes, methods, variables, and constructors.
+		
+	Types:
+		1. Public - Accessible from anywhere
+		2. Private - Accessible only within the same class
+		3. Protected - Within same package 	
+					Outside package only through inheritance 
+		4. Package(Default)- Accessible only within the same package
+							No keyword used
+		
+	Uses :
+		private → WebElements / variables (encapsulation)
+		public → reusable methods (e.g., login(), sendRequest())
+		protected → base class methods for inheritance
+		default → internal utility classes within package
+		
+	Can we make a class as private or protected in Java:
+		In Java, top-level classes cannot be declared as private or protected but Inner Classes CAN be private or protected.
+		A top-level class should be accessible from other classes/package
+			If we make it:
+					private → not accessible outside → useless
+					protected → not valid at top-level (Java doesn’t allow it)
+					
+					
+Constructor:
+------------
+	Definition:
+		A constructor is a special method that is automatically invoked when object is created for class.
+		It primary purpose is to initialize the instance variables.
+		
+	Characteristics:
+		Same name as class
+		No return type (not even void)
+		Automatically called during object creation
+		Can be overloaded
+	
+	Types:
+		1. Default Constructor  -> Provided by JVM if no constructor is defined
+		2. Parameterized Constructor  -> Used to initialize variables with custom values
+		
+	Examples:
+		Used to initialize WebDriver, config, DB connection
+		
+	Constructor vs Method:
+		
+		Constructor:
+			Special method used to initialize object
+			Same name as class
+			No return type
+			Automatically called when object is created
+			Can be overloaded
+
+		Method:
+			Used to define business logic / operations
+			Can have any name
+			Must have return type (or void)
+			Must be explicitly called
+			Can be overloaded
+			
+	Constructor Overloading:
+		Constructor overloading in Java means defining multiple constructors in the same class with different parameter lists (type, number, or order of parameters).		
+		
+		Example:
+			Used in cross browser execution concept in selenium
