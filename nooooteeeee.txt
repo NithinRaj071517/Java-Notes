@@ -16,17 +16,25 @@ Waits:
 	Definition:
 		Waits in Selenium are used to synchronize the WebDriver with the application, ensuring that elements are loaded or visible before interaction, instead of failing immediately.
 		
+	Need:
+		We need waits in automation testing because modern web applications are dynamic and elements may load due to AJAX calls, page refreshes, or delayed responses. Without waits, Selenium may try to interact with elements that are not yet available.
 	Types:
 		1. Implicit Wait
 			Global wait applied to all elements
 			WebDriver waits up to the specified time before throwing NoSuchElementException
-			Set once for entire driver session
+			Defined once and applied throughout the driver session
 			
 		2. Explicit wait
-			Applied to specific element with some condition
+			Applied to specific element Wiats for a  specific condition.
+			Uses WebDriverWait with ExpectedConditions
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+				wait.until(ExpectedConditions.visibilityOf(element));
 			
 		3. Fluent wait
 			Similar to explicit wait with polling frequency and Exception ignoring
+			
+			
+	Although Selenium allows using both waits together and it does not throw any exception, it is not recommended because implicit wait gets added to explicit wait internally, resulting in unpredictable and increased execution time.Hence, in real-time automation frameworks, we usually disable implicit wait and rely on explicit waits for better control.		
 			
 StaleElementReferenceException:
 ------------------------------			
@@ -255,3 +263,75 @@ ScreenShot:
 	Cucumber – Failed Test Cases Screenshot
 		In Cucumber, screenshots are captured inside the Hooks class using the @After hook.
 		We check scenario.isFailed() and then attach the screenshot to the report.		
+		
+		
+Alerts:
+-------
+	Definition:
+		Alerts in selenium is a Javascript popup used by  the application to display information, confirmation and 	or request input from user.
+		Javascript alerts are  not part of the DOM ,so it cannot be inspectable .
+		If an alerts appears and  are not handled , selenium execution blocks and no further actions can be performed.
+		Selenium handles alerts using the Alert interface.
+		
+	Types:
+		Simple Alert – Information message with OK button
+		Confirmation Alert – OK and Cancel buttons
+		Prompt Alert – Input box with OK and Cancel buttons	
+		
+	Examples:
+		1. You have an alert and you ignored it  --> UnhandledAlertException --> This happens because alerts block the UI thread until they are accepted or dismissed.
+		2. You dont have an alert and you handled it  -> NoAlertPresentException
+		
+		
+Locators:
+--------
+	Definition:
+		Locator is used to identify and locate web elements on a web page so that Selenium can perform actions like click, sendKeys, or getText.
+		Since web applications are built using HTML, locators help Selenium uniquely identify elements from the DOM.
+		
+	Types:
+		1. Basic Locators 
+				Id
+				Name
+				ClassName
+				TagName
+		2. Advanced Locators
+				Link text
+				Partial link text
+				CSS selector
+				Xpath
+	
+	Most preferred locator in Selenium:
+		1.By.id because:
+			IDs are unique in the DOM
+			They are fastest for element identification
+			They make scripts more stable and readable
+		2. If Id is not available next preferred
+			Name
+			css selector
+			Relative Xpath
+			
+	Less preferred locator in Selenium:
+		1. By.classname:
+			Same class can be used for multiple elements, which may lead to incorrect element identification if not handled properly.
+		2. Absolute xpath:
+			It is tightly coupled to the DOM structure and breaks easily when UI changes.
+	
+	CSS vs Xpath:
+		1. CSS:
+			CSS Selector uses CSS syntax to locate elements based on attributes such as id, class, tag name, and relationships.
+			Syntax simpler
+			DOM traversal forward only
+			Performance is faster
+			
+		2. Xpath:
+			XPath uses XML path expressions to locate elements by traversing the DOM structure.
+			Syntax more powerful
+			DOM traversal both backward & forward 
+			Performance is slightly slower
+			
+		Preferred CSS because it is faster , cleaner and easy to maintain. 
+		However , Xpath is unavoidable when 
+			Locating elements using text
+			Traversing from child to parent
+			Handling complex dynamic elements
