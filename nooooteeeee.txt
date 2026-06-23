@@ -219,6 +219,14 @@ Selenium WebDriver:
 			Login flows
 			Order placement
 			
+	Common WebDriver methods include:
+
+		get() – to launch the application
+		findElement() / findElements() – to locate elements
+		getText() – to fetch visible text
+		getTitle() – to validate page title
+		quit() – to close all browser instances		
+			
 Select Dropdown:
 ---------------
 	Definition:
@@ -461,4 +469,41 @@ Constructor:
 		Constructor overloading in Java means defining multiple constructors in the same class with different parameter lists (type, number, or order of parameters).		
 		
 		Example:
-			Used in cross browser execution concept in selenium
+			Used in cross browser execution concept in selenium.
+			
+Actions:
+--------
+	Definition:
+		Actions class is used to perform advanced user interaction that cannot be handle by basic webelement methods like click() or sendKeys().
+		It is mainly used for mouse and keyboard operations, such as hover, right-click, drag and drop, double-click, and keyboard actions.
+		
+	Common Interactions Handled
+		Mouse hover (moveToElement)
+		Right click (contextClick)
+		Double click (doubleClick)
+		Drag and drop (dragAndDrop)
+		Keyboard actions (keyDown, keyUp, sendKeys)
+		
+Frames:
+-------
+	Definition:
+		Frames / iFrames are HTML elements that embed another web page inside a parent web page.
+		Each frame has its own DOM, and Selenium can interact only with the currently focused DOM.
+		Therefore, before interacting with elements inside a frame, we must switch Selenium’s control to that frame.
+		
+	Methods to access Frames:
+		1, Switching frame Using index
+			driver.switchTo().frame(0);
+						
+		2. Switching frame Using String (String may be Name or Attribute)
+			driver.switchTo().frame("Name");
+		
+		3. Switching frame Using WebElement
+			driver.switchTo().frame(frameElement);
+			
+	parentFrame() --> is used to switch control from the current frame to its immediate parent frame.
+
+	defaultContent() --> is used to switch control back to the main page, i.e., outside all frames, regardless of the nesting level.
+	
+	Nested Frames:
+		Nested frames are handled by switching sequentially from the main page to the parent frame and then to the child frame. Selenium does not support jumping directly to an inner frame. To exit, parentFrame() moves one level up, while defaultContent() returns to the main page.
