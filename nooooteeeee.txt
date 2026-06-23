@@ -507,3 +507,72 @@ Frames:
 	
 	Nested Frames:
 		Nested frames are handled by switching sequentially from the main page to the parent frame and then to the child frame. Selenium does not support jumping directly to an inner frame. To exit, parentFrame() moves one level up, while defaultContent() returns to the main page.
+		
+
+API (Application Programming Interface):
+---------------------------------------
+	Definition:
+		API is an set of rules and protocols that allows to  communicate from one application with another application.
+		It works on request - response mechanism where one system sends request and another system returns response.
+		
+	Examples:
+		When you use a mobile app to book a ticket, the app communicates with the server through APIs to fetch available tickets and confirm the booking.
+		
+	API Testing:
+		API Testing is a type of testing where we validate the functionality, reliability, performance, and security of APIs without involving the UI.
+		It involves sending requests to the API and verifying the responses such as status codes, response body, headers, and data correctness.
+		
+	API testing difference from UI testing:
+		API testing is faster and more reliable because it doesn’t depend on UI elements
+		API testing helps identify issues early in development, while UI testing is usually done later
+		API Testing is done at the backend level, whereas UI testing is done at the front-end level
+		
+	Real-time example: Instead of testing a login through UI, we directly send login API request and validate the response token.
+	
+	Types :
+		1. Based on Access level
+				Public API (Open APIs) --> Available for anyone to use (e.g., Google Maps API)
+				Private API (Internal APIs) --> Used within an organization for internal communication
+				Partner API --> Shared with specific business partners with controlled access
+				Composite API --> Combine multiple APIs into a single request (used to improve performance)
+		2. Based on Architecture level
+				REST API --> Uses HTTP methods (GET, POST, PUT, DELETE), lightweight, widely used
+				SOAP API --> Uses XML, more secure, follows strict protocol.
+				
+				
+	API Request Components:
+		An API request is sent by the client to the server to perform an action.
+		It contains:
+			HTTP Method (GET, POST, PUT, DELETE)
+			URL (Endpoint) → identifies resource
+			Headers → metadata (Authorization, Content-Type)
+			Path Parameters → part of URL (/users/101)
+			Query Parameters → filters (?status=active)
+			Request Body → data sent (mainly in POST/PUT)
+			Authentication → token, API key, etc.
+		
+		
+	API Response Components:
+		An API response is sent by the server back to the client after processing the request.
+		It contains:
+			Status Code → (200, 201, 400, 404, 500)
+			Response Body → actual data (JSON/XML)
+			Headers → metadata
+			Response Message → success/error message	
+			
+			
+	HTTPs status code are the  part of API response that indicate the result of the request sent by the client to the server
+	It has different categories such as 
+		1xx--> Request was received and the server is continuing the process.
+		2xx--> Indicates the success reason 
+				201 - Resource Created
+				200 - Request was successful 
+		3xx--> Indicates redirection
+			
+		4xx--> Error on the client side
+				400 - Bad request 
+				401 - Unauthorized
+				403 - forbidden
+		5xx--> Error on the server side. 
+				500 - Internal Error
+				501 - Bad Gateway		
