@@ -226,7 +226,25 @@ Selenium WebDriver:
 		getText() – to fetch visible text
 		getTitle() – to validate page title
 		quit() – to close all browser instances		
+		
+		
+		
+WebDriver Manager:
+-------------------
+	Definition:
+		WebDriverManager is a library that automatically:
+			Downloads the correct browser driver
+			Manages driver versions
+			Removes the need to set system properties manually
 			
+			
+	Uses:
+		No need to download drivers manually
+		No need to set System.setProperty()
+		Avoids driver-browser versions mismatch
+		Makes framework clean and maintenance-free
+		
+		
 Select Dropdown:
 ---------------
 	Definition:
@@ -507,8 +525,28 @@ Frames:
 	
 	Nested Frames:
 		Nested frames are handled by switching sequentially from the main page to the parent frame and then to the child frame. Selenium does not support jumping directly to an inner frame. To exit, parentFrame() moves one level up, while defaultContent() returns to the main page.
-		
 
+Navigation Commands:
+--------------------
+	Definition:	
+		Navigation commands are used to move between pages in a browser.
+	
+	driver.get(url):
+		Navigates to the given URL
+		Waits until the page is fully loaded
+		Simple and commonly used
+		
+		
+	driver.navigate().to(url):
+		Navigates to the given URL
+		Does not wait fully like get() (slight difference)
+		Provides additional navigation methods:
+			navigate().back()
+			navigate().forward()
+			navigate().refresh()	
+	Internally, navigate().to() calls get() method.
+	
+	
 API (Application Programming Interface):
 ---------------------------------------
 	Definition:
