@@ -614,3 +614,48 @@ API (Application Programming Interface):
 		5xx--> Error on the server side. 
 				500 - Internal Error
 				501 - Bad Gateway		
+Rest Assured:
+------------
+	Definition:
+		Rest Assured is a Java-based library used for automating REST API testing.
+		It simplifies HTTP request creation, response validation, and supports BDD-style scripting.
+		
+	Uses:
+		Provides easy syntax for writing API tests
+		Supports Given-When-Then (BDD) for readability
+		Built-in support for authentication (OAuth, Basic, Bearer Token)
+		Supports JSON/XML parsing, serialization & deserialization
+		Integrates well with TestNG, Cucumber, and Maven frameworks
+	
+	Example:
+		In my project, I use Rest Assured to automate backend APIs for telecom workflows (like port-in requests). I validate response status codes, schema, business data, and chain APIs using tokens. It helps in early defect detection before UI is ready.
+
+Given–When–Then structure in Rest Assured :
+-------------------------------------------
+	Definition:
+		Rest Assured follows BDD style using Given-When-Then structure to improve readability and maintainability of API tests
+		
+	Given() - Used to define preconditions / request setup
+			   Includes :	
+					Headers
+					Authentication
+					Query params / Path params
+					Request body
+					
+	When() - Used to perform the action (HTTP request)
+				Includes:
+					GET, POST, PUT, DELETE, PATCH
+					
+	Then() - Used to validate the response
+				Includes:
+					Status code
+					Response body
+					Headers
+					Response time
+
+
+
+
+
+
+				
