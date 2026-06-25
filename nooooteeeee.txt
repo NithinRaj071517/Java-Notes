@@ -717,8 +717,85 @@ Given–When–Then structure in Rest Assured :
 					Response time
 
 
+Encapsulation:
+--------------
+	Definition:
+		Encapsulatin is an OOP concept where data and methods are wrapped together into a single unit and internal data is hidden from outside access.
 
+	Uses:
+		To achieve data hiding 
+		To control how data is accessed or modified
+		To improve security, maintainability, and flexibility.
+		
+	Internal working:
+		Variables are declared as private
+		Access is provided through public getter and setter methods
+		We can also add validation logic inside setters to control incorrect data
+		
+	Real-time Project Example:
+		In Selenium Page Object Model (POM), we declare WebElements as private and expose them via public methods (actions like click, sendKeys).
+		This ensures:
+			Elements are not directly accessed outside the class
+			Changes in locators don’t affect test scripts
+			Code becomes clean, reusable, and maintainable
+			
+			
+	How Encapsulation Provides Data Security:
+		Encapsulation ensures data security by restricting direct access to variables and allowing access only through controlled methods (getters & setters).
+		This helps in:
+			Preventing unauthorized modification
+			Adding validation before updating data
+			Controlling business rules centrally
+			
+	Real-world Scenario (Banking System):
+		In a banking application, the account balance should not be modified directly.		
+		User cannot directly change balance
+		Only allowed operations (deposit/withdraw) are exposed
+		Invalid operations are restricted using validation logic
 
+Polymorphism:
+------------
+	Definition:
+		Polymorphism means “one name, many forms”, where the same method behaves differently based on input parameters or object type.
 
+	Types:
+		1. Compile Time Polymorphism (Static Binding)
+			Achieved using Method overloading
+			Same method name with different method signatures:
+				Different number of parameters
+				Different data types
+			JVM decides at compile which method to execute
+		2. Run Time Polymorphism (Dynamic Binding)
+			Achieved using Method overriding
+			Child class provides specific implementation of parent class method
+			JVM decides at runtime which method to execute
+			
+	In Selenium framework:
+		We override methods like:
+			setup() or teardown() in TestNG
+		Different environments can have different implementations		
+		Polymorphism in Selenium helps in writing flexible, reusable, and maintainable automation frameworks
+			
+	Difference	Method Overloading vs Method overriding
+		Definition
+			Same method name with different parameters
+			Redefining parent class method in child class
+		Class Level
+			Same class
+			Parent & Child class
+		Parameters
+			Must be different (type/number)
+			Must be same
+		Return Type
+			Can change (but not alone)
+			Must be same (or covariant)
+		Binding
+			Compile-time (Static)
+			Runtime (Dynamic)
+		JVM Decision
+			At compile time
+			At runtime
+		Inheritance
+			Not required
+			Required
 
-				
