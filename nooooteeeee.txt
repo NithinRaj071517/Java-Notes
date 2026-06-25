@@ -226,7 +226,34 @@ Selenium WebDriver:
 		getText() – to fetch visible text
 		getTitle() – to validate page title
 		quit() – to close all browser instances		
+
+WebElement:
+-----------
+	Definition:
+		WebElement in Selenium is an Interfac that represents single HTML element on web page.
 		
+	Uses:
+		Once an element is located using findElement() or findElements(), it is stored as a WebElement.
+		WebElement methods are used to interact with and validate UI elements after locating them using WebDriver.
+		
+	Methods:	
+		WebElement provides methods to interact with elements such as 
+			Interaction Methods
+				sendKeys() – Enters text into input fields
+				click() – Clicks on buttons, links, checkboxes
+			Verification / Get Methods
+				getText() – Fetches/Returns  visible text of an element
+				getAttribute("value") – Returns specific value  of a  HTML attribute
+			State-Checking Methods
+				isDisplayed() – Checks whether the element is visible on the UI
+								Returns true if visible, else false
+				isEnabled() – Checks whether the element is enabled for interaction
+							Mostly used for buttons and input fields
+				isSelected() – Checks whether a checkbox or radio button is selected
+			Utility Methods
+				clear() – Clears existing text
+				getTagName() – Returns HTML tag
+				getCssValue() – Fetches CSS properties
 		
 		
 WebDriver Manager:
@@ -244,7 +271,22 @@ WebDriver Manager:
 		Avoids driver-browser versions mismatch
 		Makes framework clean and maintenance-free
 		
+
+Exception Handling:
+------------------
+	Definition:
+		An exception in Selenium is a runtime error that occurs during test execution when Selenium is unable to perform an action as expected.
 		
+	When do exception occurs:
+		Element not present in DOM
+		Element not visible or not interactable
+		Synchronization issues
+		Invalid locator
+		Browser or driver issues
+
+	NoSuchElementException occurs when element is not found.
+	TimeoutException occurs when a condition is not satisfied within the wait duration. Occurs afetr waiting
+	ElementNotInteractableException means element is found but cannot be interacted with.
 Select Dropdown:
 ---------------
 	Definition:
@@ -502,6 +544,27 @@ Actions:
 		Drag and drop (dragAndDrop)
 		Keyboard actions (keyDown, keyUp, sendKeys)
 		
+	Keyboard Actions in Selenium
+		Keyboard actions allow us to simulate keyboard key presses using the Actions class, especially for combinations or system-level key interactions.
+		Keyboard actions are mainly used for shortcut keys and complex keyboard interactions.
+		Important Keyboard Action Methods
+			sendKeys(Keys.ENTER) is used for single key presses, while keyDown() and keyUp() are used for modifier keys.
+			keyDown(Keys.CONTROL)
+			keyUp(Keys.CONTROL)
+			sendKeys(Keys.ENTER)
+			sendKeys(Keys.TAB)
+			
+Windows Handling:
+----------------
+	Definition:
+		Window handling in selenium is used to manage and 	switch control between  multiple  browser window  or tabs opened during  test execution.
+		Window Handle:
+			A unique String ID assigned by the browser to each window or tab.
+			Selenium cannot switch windows automatically; it must be done using window handles.
+		getWindowHandle() provides the current window uniques id  , it return current window id as string
+			String parent=driver.getWindowHandle();
+		getWindowHandles() provides the   uniques id of all currently opened windows it return set of window id 
+			Set<String> allOpenWindows=driver.getWindowHandles();
 Frames:
 -------
 	Definition:
