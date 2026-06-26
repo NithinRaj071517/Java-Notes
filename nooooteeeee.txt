@@ -287,6 +287,7 @@ Exception Handling:
 	NoSuchElementException occurs when element is not found.
 	TimeoutException occurs when a condition is not satisfied within the wait duration. Occurs afetr waiting
 	ElementNotInteractableException means element is found but cannot be interacted with.
+
 Select Dropdown:
 ---------------
 	Definition:
@@ -799,3 +800,52 @@ Polymorphism:
 			Not required
 			Required
 
+Map:
+----
+	Definition:
+		Map is an interface in Java that stores data in the form of key–value pairs, where each key is unique and maps to at most one value.
+		It is not a child interface of Collection, so it is not considered a true collection.
+		Map is mainly used when data needs to be retrieved, updated, or searched using a key rather than by position.
+
+
+	Characteristics of Map:
+		Stores data as key–value pairs
+		Duplicate keys are not allowed
+		Duplicate values are allowed
+		Each key maps to only one value
+		Provides views like keySet(), values(), and entrySet()
+
+	Map is an interface, and it has multiple implementations, each designed for different use cases.
+		HashMap
+			Stores data in key–value pairs using hashing
+			No ordering of keys
+			Allows one null key and multiple null values
+			Best for fast access and performance
+			HashMap is not synchronized
+				
+				
+		LinkedHashMap
+			Extends HashMap
+			Maintains insertion order (or access order if enabled)
+			Slightly slower than HashMap
+			Allows one null key and multiple null values
+			Used when order matters
+
+
+		TreeMap
+			Stores keys in sorted order (natural order or custom Comparator)
+			Does not allow null keys
+			Allows multiple null values
+			Used when sorted data or range operations are required
+			
+		Hashtable
+			Synchronized (thread-safe)
+			Does not allow null keys or null values
+			Slower compared to HashMap
+			Considered legacy				
+			
+		ConcurrentHashMap
+			Thread-safe and highly performant
+			Allows null keys and values? → NO
+			Uses internal locking for better concurrency
+			Used in multi-threaded environments
