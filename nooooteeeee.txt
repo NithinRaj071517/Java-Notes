@@ -44,7 +44,6 @@ StaleElementReferenceException:
 		1. Page refresh
 		2. DOM updated due to AJAX
 		3. Element removed or recreated
-		3. Element removed or recreated
 		4. Switching frames or windows
 		
 	Solutions:
@@ -114,6 +113,7 @@ ArrayList and LinkedList:
 		4. Uses a resizable array
 		5. When capacity is full → creates a new array (approx 1.5x size) and copies elements
 		6. It follows the insertion order and allows duplicates
+		7. Allows to add null value 
 	 
 
 	LinkedList:
@@ -123,6 +123,7 @@ ArrayList and LinkedList:
 		4. Uses nodes (each node has data + next + previous reference)
 		5. No shifting required during insert/delete
 		6. It follows the insertion order and allows duplicates
+		7. Allows to add null value 
 
 
 HashSet & HashMap:
@@ -193,8 +194,8 @@ Array Vs ArrayList:
 Memory Allocation:
 -------------------
 	In Java, array memory is managed using both Stack and Heap
-		Stack memory --> Heap stores reference 
-		Heap memory --> Heap stores elements
+		Stack memory -->  stores reference 
+		Heap memory -->  stores elements
 	
 	int[] arr = new int[3];
 		arr --> reference varaible --> stack memory
@@ -216,7 +217,7 @@ Selenium WebDriver:
 		
 	Examples:
 		Selenium WebDriver is used to automate:
-			Login flows
+					Login flows
 			Order placement
 			
 	Common WebDriver methods include:
