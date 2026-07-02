@@ -11,6 +11,107 @@ FindElement & FindElements
 						Returns all matched elements
 						Returns empty list
 						List handling (tables, dropdowns)
+						
+						
+Verification vs Validation:
+--------------------------
+	Definition:
+		Verification checks whether we are building the product correctly.
+		It focuses on documents, design, code, and requirements
+		Done without executing the code
+		Happens in the early stages of development
+		Examples:
+			Requirement reviews
+			Test case reviews
+			Design walkthroughs
+			Code reviews
+	
+	Definition:
+		Validation checks whether we are building the correct product.
+		It focuses on the actual working software
+		Done by executing the application
+		Happens after development
+		Examples:
+			Functional testing
+			System testing
+			UAT (User Acceptance Testing)
+			Regression testing
+			
+			
+Severity vs Priority:
+--------------------
+		Definition:
+			Severity - How badly the bug/defect impacts the application
+			Priority - How urgently the bug/defect needs to be fixed 
+		
+		Examples:
+			1. Login button not working 
+				High Severity , High Priority  --> User cant access the application
+			2. Typo in Company name on homepage  
+				Low Severity , High Priority --> Functionality is fine but it affects the company reputation
+			3. Application crashes in rarely used admin feature 
+				High Severity , Low Priority --> Functionality is affected , but impacts very few users
+			4. Minor UI color mismatch in footer
+				Low Severity , High Severity --> Neither functionality nor business is impacted much
+				
+Status Codes:
+------------
+						
+		| Status Code |                 Name   | 			Meaning                           | Common Example          |
+		| ----------- | ---------------------- | -------------------------------------------- | ----------------------- |
+		| **400**     | Bad Request            | Invalid request syntax or missing parameters | Wrong JSON body         |
+		| **401**     | Unauthorized           | Authentication failed or missing             | Invalid token           |
+		| **402**     | Payment Required       | Reserved / sometimes used for paid APIs      | Subscription required   |
+		| **403**     | Forbidden              | Access denied even after authentication      | No permission           |
+		| **404**     | Not Found              | Resource does not exist                      | Wrong endpoint          |
+		| **405**     | Method Not Allowed     | HTTP method not supported                    | POST instead of GET     |
+		| **406**     | Not Acceptable         | Response format not supported                | Accept header issue     |
+		| **408**     | Request Timeout        | Client took too long                         | Network delay           |
+		| **415**     | Unsupported Media Type | Unsupported request payload format           | XML instead of JSON     |
+		| **429**     | Too Many Requests      | Rate limit exceeded                          | API throttling          |
+
+		| Status Code | Name               | Meaning                               | Common Example         |
+		| ----------- | ------------------ | ------------------------------------- | ---------------------- |
+		| **300**     | Multiple Choices   | Multiple possible responses available | Content negotiation    |
+		| **301**     | Moved Permanently  | Resource permanently moved            | HTTP → HTTPS redirect  |
+		| **302**     | Found              | Resource temporarily moved            | Temporary redirect     |
+		| **303**     | See Other          | Redirect using GET method             | After form submission  |
+		| **304**     | Not Modified       | Cached version can be used            | Browser cache          |
+		| **307**     | Temporary Redirect | Temporary redirect (same method)      | API version switch     |
+		| **308**     | Permanent Redirect | Permanent redirect (same method)      | API endpoint migration |
+
+		| Status Code | Name                       | Meaning                               | Common Example         |
+		| ----------- | -------------------------- | ------------------------------------- | ---------------------- |
+		| **500**     | Internal Server Error      | Generic server failure                | Unhandled exception    |
+		| **501**     | Not Implemented            | Feature not supported                 | API not developed      |
+		| **502**     | Bad Gateway                | Invalid response from upstream server | Microservice failure   |
+		| **503**     | Service Unavailable        | Server temporarily down               | Maintenance / overload |
+		| **504**     | Gateway Timeout            | No response from upstream server      | API timeout            |
+		| **505**     | HTTP Version Not Supported | Protocol version not supported        | Old HTTP version       |
+		| **507**     | Insufficient Storage       | Server out of storage                 | Disk full              |
+
+		| Status Code | Name                          | Description                                   | Typical Usage        |
+		| ----------- | ----------------------------- | --------------------------------------------- | -------------------- |
+		| **200**     | OK                            | Request processed successfully                | GET API success      |
+		| **201**     | Created                       | New resource created successfully             | POST – create user   |
+		| **202**     | Accepted                      | Request accepted but processing not completed | Async processing     |
+		| **203**     | Non-Authoritative Information | Response modified by proxy or cache           | Cached response      |
+		| **204**     | No Content                    | Request successful with no response body      | DELETE operation     |
+		| **205**     | Reset Content                 | Client should reset input form                | Form reset           |
+		| **206**     | Partial Content               | Partial data returned                         | Resume file download |
+
+		| Status Code | Name                | Description                                      | Typical Usage        |
+		| ----------- | ------------------- | ------------------------------------------------ | -------------------- |
+		| **100**     | Continue            | Initial request received, client should continue | Large request body   |
+		| **101**     | Switching Protocols | Server is switching protocols                    | HTTP → WebSocket     |
+		| **102**     | Processing          | Request received, still being processed          | Long-running request |
+		| **103**     | Early Hints         | Server sends hints before final response         | Preload resources    |
+
+
+
+
+
+
 Waits:
 ------
 	Definition:
