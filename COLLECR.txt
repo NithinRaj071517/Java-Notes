@@ -1,164 +1,64 @@
-Java Collection Framework:
--------------------------
+Map:
+----
 	Definition:
-		JCF is a set of interfaces and classes used to store , manage and manipulate group of objects dynamically .
+		Map is an interface in Java used to  stores the data in the form of key–value pairs, where each key is unique and maps to at most one value.
+		Map is mainly used when data needs to be retrieved, updated, or searched using a key rather than by position.
+		It is not a child interface of Collection, so it is not considered a true collection.
 		
-	Uses:
-		To handle dynamic data (unlike arrays)
-		Provides built-in algorithms (sorting, searching)
-		Improves code reusability and performance
-		Helps in data organization using different structures (List, Set, Map)	
+
+
+	Characteristics of Map:
+		1. Stores data as key–value pairs
+		2. Duplicate keys are not allowed
+		3. Duplicate values are allowed
+		4. Each key maps to only one value
+		5. HashMap does not guarantee insertion order.
+		6. LinkedHashMap maintains insertion order.
+		7. TreeMap maintains sorted order based on keys.
+		8. Provides fast retrieval using keys.
+
+	Common implementations are:
+		HashMap
+		LinkedHashMap
+		TreeMap
 		
-	Core Interfaces of JCF:
-		1. List -->  To store multiple elements (findElements)
-		2. Set  --> To handle unique window handles
-		3. Map (part of framework but not child of Collection)  --> To store test data (key-value pairs like username/password)
-		4. Queue
+	In my Selenium automation framework, I use Map for storing test data such as Username → Admin and Password → Test123, and for storing API request/response data.	
 		
+
+	Map is an interface, and it has multiple implementations, each designed for different use cases.
+		HashMap
+			Does not allow duplicate keys.
+			Allows duplicate values.
+			Allows one null key.
+			Does not maintain insertion order.
+			Provides the best performance.
+			HashMap internally uses a hash table to store data as key-value pairs.
 		
-List:
------
-	Definition:
-		List is an interface in Java Collection Framework which extends the Collection Interface.
-		It is used to store and manipulate the group of objects dynamically.
+			HashMap does not allow duplicate keys. If we insert the same key again, HashMap updates the value associated with that key and returns the old value (if captured).
 		
-	Characteristics:
-		1. Allows duplicate values
-		2. Allows null values
-		3. Follows the insertion order 
-		4. Provides index based accessing starts from index 0
-		5. It is dynamic in size , so elements can be added or removed during runtime
-	
-	Common implementations of List Interface:
-		1. ArrayList
-		2. LinkedList
-		3. Vector
-		
-	In my automation framework, I frequently use List to store WebElements, test data from Excel, and API response values for validation.
-		
-		
-ArrayList and LinkedList:
-------------------------		
-
-	Definition:
-		ArrayList and LinkedList are implementation classes of the List interface used to store ordered and dynamic collections of elements.
-
-	ArrayList:
-		1. Internally uses resizable array
-		2. Its access time is fast
-		3. Insertion/Deletion is slow because elements need to be shifted.
-		4. Uses a resizable array
-		5. When capacity is full → creates a new array (approx 1.5x size) and copies elements
-		6. It follows the insertion order and allows duplicates
-		7. Allows to add null value 
-		8. Consumes less memory compared to LinkedList.
-	 
-
-	LinkedList:
-		1. Internally uses doubly linked list(node based)
-		2. Its access time is slow 
-		3. Insertion/Deletion is fast because node links can be updated without shifting elements.
-		4. Uses nodes (each node has data + next + previous reference)
-		5. No shifting required during insert/delete
-		6. It follows the insertion order and allows duplicates
-		7. Allows to add null value 
-		8. Consumes more memory due to additional references.
+		LinkedHashMap
+			Does not allow duplicate keys.
+			Allows duplicate values.
+			Allows one null key.
+			Maintains insertion order.
+			Slightly slower than HashMap due to order maintenance.
 
 
-	In my automation framework, I mostly use ArrayList because we frequently retrieve test data, WebElements, and API response values, while insertion and deletion operations are less common.
-	
-	
-	When the ArrayList reaches its capacity and a new element is added, Java creates a new array with approximately 1.5 times the current capacity. All existing elements are copied to the new array, and the old array becomes eligible for garbage collection.
-
-
-
-Set:
------
-	Definition:
-		Set is an interface in Java Collection Framework which extends the Collection Interface.
-		It is used to store and manipulate the group of objects dynamically while maintaining uniqueness.
-		
-	Characteristics:
-		1. Does not allow duplicate elements.
-		2. Allows one null value in HashSet and LinkedHashSet.
-		3. TreeSet does not allow null values.
-		4. HashSet does not guarantee insertion order.
-		5. LinkedHashSet maintains insertion order.
-		6. TreeSet maintains sorted order.
-		7. Does not support index-based access.
-	
-	Common implementations of Set Interface:
-		1. HashSet
-		2. LinkedHashSet
-		3. TreeSet
-		
-	In my automation framework, I frequently use List to store WebElements, test data from Excel, and API response values for validation.
-
-
-HashSet, LinkedHashSet and TreeSet:
------------------------------------		
-
-	Definition:
-		HashSet, LinkedHashSet, and TreeSet are implementation classes of the Set interface used to store unique elements dynamically.
-
-	HashSet:
-		1. Does not allow duplicate values 
-		2. Allow one null value
-		3. Does not maintain insertion order 
-		4. Internally uses HashMap.
-		5. Provides best performance for add, remove, and search operations
-	 
-
-	LinkedHashSet:
-		1. Does not allow duplicate values 
-		2. Allow one null value
-		3. Maintain insertion order 
-		4. Internally uses LinkedHashMap.
-		5. Slightly slower than HashSet due to maintaining order
-
-	TreeSet:
-		1. Does not allow duplicate values 
-		2. Does not allow null values.
-		3. Maintains natural sorting order 
-		4. Internally uses Red-Black Tree (Tree Map).
-		5. Slower than HashSet because sorting is maintained.
-
-	In automation frameworks, I generally use HashSet for uniqueness checks, LinkedHashSet when insertion order is important, and TreeSet when sorted data is required.
-	
-	
-HashSet Internally works:
--------------------------
-
-	1. HashSet internally uses HashMap to store element.
-	2. When we add an element into a HashSet, the element is stored as the Key in the underlying HashMap and a dummy constant object is stored as the Value.
-	3. While adding element in HashSet , HashSet calls the  hashCode() method to generate an unique integer hashCode/hashvale and Based on the hash code, HashMap determines the bucket location.
-	4. If the bucket is empty, the element is added.
-	5. If another element already exists in the same bucket, HashSet calls the equals() method.
-	6. If equals() returns true, the element is considered a duplicate and is not added.
-	7. If equals() returns false, both elements can coexist in the same bucket.
-
-	This combination of hashCode() and equals() helps HashSet maintain unique elements.
-
-HashSet & HashMap:
------------------
-	Definition:
-		HashSet is  implementation classes of the Set interface , stores unique elements
-		HashMap is  implementation classes of the Map interface , stores key-value pairs
-
-	HashSet:
-		1. Stores only value
-		2. Insertion order not maintained 
-		3. Duplicates are not allowed 
-		4. Allows to add one null value
-		5. Uses HashMap internally
-	 
-
-	HashMap:
-		1. Stores  key value pair representation 
-		2. Insertion order not maintained 
-		3. Duplicates Keys are not allowed but duplicate values allowed 
-		4. Allows one null value in key & multiple null values
-		5. HashMap works based on hashcode() and equals() for fast retrieval
-
-	HashSet is used in window handling for unique window ID
-	and HashMap used in test data assigning like user name & password 
+		TreeMap
+			Does not allow duplicate keys.
+			Allows duplicate values.
+			Does not allow null keys.
+			Maintains natural sorted order based on keys.
+			Slower than HashMap because sorting is maintained.
+			
+		Hashtable
+			Synchronized (thread-safe)
+			Does not allow null keys or null values
+			Slower compared to HashMap
+			Considered legacy				
+			
+		ConcurrentHashMap
+			Thread-safe and highly performant
+			Does not allow null keys or null values
+			Uses internal locking for better concurrency
+			Provides better performance than Hashtable in multi-threaded environments
