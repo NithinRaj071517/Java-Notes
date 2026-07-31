@@ -1006,7 +1006,7 @@ Given–When–Then structure in Rest Assured :
 Encapsulation:
 --------------
 	Definition:
-		Encapsulatin is an OOP concept where data and methods are wrapped together into a single unit and internal data is hidden from outside access.
+		Encapsulatin is an OOP concept where data and methods are wrapped together into a single unit and internal data is hidden from outside access. It is mainly used to achieve data hiding by restricting direct access to the data.
 
 	Uses:
 		To achieve data hiding 
@@ -1084,4 +1084,43 @@ Polymorphism:
 		Inheritance
 			Not required
 			Required
+			
+TestNG:
+-------
+	Definition:
+		TestNG is an open source testing framework designed to make test automation more powerful & flexible.
+		It is widely used with Selenium webDriver to organize, execute and managing the test cases.
+		
+	Compared to running Selenium scripts using a main() method, TestNG provides several advanced features such as:
+		Annotations like @Test, @BeforeMethod, and @AfterMethod to manage test execution.
+		Prioritization and dependency between test cases.
+		Grouping of test cases.
+		Parameterization using @Parameters and @DataProvider.
+		Parallel execution for faster test runs.
+		Built-in HTML reports.
+	
+	Annotations:
+		Annotations are metadata provided to TestNG that define how and when test methods should be executed.
+		They help organize the test lifecycle without writing manual method calls.
+		Using annotations, we can perform setup, teardown, grouping, parameterization, and control the execution order of test methods.
+		
+		
+								@BeforeSuite → Initialize reporting, global setup.
+									↓
+								@BeforeTest → Database connection, reading Excel/configuration.
+									↓
+								@BeforeClass → Initialize WebDriver or page objects.
+									↓
+								@BeforeMethod → Launch application, login, preconditions.
+									↓
+								@Test → Actual test execution.
+									↓
+								@AfterMethod → Logout, capture screenshots on failure, cleanup.
+									↓
+								@AfterClass → Close browser.
+									↓
+								@AfterTest → Close database connections or release resources.
+									↓
+								@AfterSuite → Flush reports, generate final report.
+								@DataProvider → Execute the same test with multiple datasets.
 
