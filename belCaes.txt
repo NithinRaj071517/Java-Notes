@@ -1,0 +1,11 @@
+1.Tell me about yourself and Project explanation.
+2.Explain your framework and roles and responsibilities.
+3.What is shadow DOM?
+4.How to take Screen shot on specific area in webpage.
+5.Diffrence between selenium click and JavaScript executer click.
+6.What is headless method and write a syntax for headless method.
+7.Explain about AI and where it is used in your project or framework.
+8.What is prompt engineering.
+9.What is LLM model and how it works?
+10.What is AI agents? Have you ever implements AI agents?
+11.Explain any AI tools how it works ex. Claude, Copilot, ChatGPT.
