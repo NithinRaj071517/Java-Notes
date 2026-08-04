@@ -846,6 +846,33 @@ Navigation Commands:
 	Internally, navigate().to() calls get() method.
 	
 	
+Javascript Executor:
+--------------------
+	Definition:
+		JavaScriptExecutor is an interface in Selenium that allows us to execute JavaScript code directly inside the browser.
+		
+	Why it is used:
+		Sometimes Selenium WebDriver cannot interact with certain web elements because of:
+			Hidden elements
+			Disabled elements
+			Complex UI controls
+			Scrolling issues
+			Click interception issues
+		In such cases, JavaScriptExecutor helps perform actions directly using JavaScript.	
+		
+JavaScriptExecutor Click Vs Selenium Click:
+-------------------------------------------
+	Selenium Click:
+		Simulates real user action
+		Checks the interactablity and clickability
+		Recommended approach
+		
+	JavaScriptExecutor click:
+		Directly triggers click events
+		Skips the UI validation
+		Used as fallback
+	
+	
 API (Application Programming Interface):
 ---------------------------------------
 	Definition:
@@ -1184,3 +1211,9 @@ TestNG:
 								@AfterSuite → Flush reports, generate final report.
 								@DataProvider → Execute the same test with multiple datasets.
 
+
+
+Abstraction:
+------------
+	Definition:
+		Abstraction is the process of hiding the implementation details and show only functionality to the user.
