@@ -54,60 +54,6 @@ Severity vs Priority:
 			4. Minor UI color mismatch in footer
 				Low Severity , High Severity --> Neither functionality nor business is impacted much
 				
-Status Codes:
-------------
-						
-		| Status Code |                 Name   | 			Meaning                           | Common Example          |
-		| ----------- | ---------------------- | -------------------------------------------- | ----------------------- |
-		| **400**     | Bad Request            | Invalid request syntax or missing parameters | Wrong JSON body         |
-		| **401**     | Unauthorized           | Authentication failed or missing             | Invalid token           |
-		| **402**     | Payment Required       | Reserved / sometimes used for paid APIs      | Subscription required   |
-		| **403**     | Forbidden              | Access denied even after authentication      | No permission           |
-		| **404**     | Not Found              | Resource does not exist                      | Wrong endpoint          |
-		| **405**     | Method Not Allowed     | HTTP method not supported                    | POST instead of GET     |
-		| **406**     | Not Acceptable         | Response format not supported                | Accept header issue     |
-		| **408**     | Request Timeout        | Client took too long                         | Network delay           |
-		| **415**     | Unsupported Media Type | Unsupported request payload format           | XML instead of JSON     |
-		| **429**     | Too Many Requests      | Rate limit exceeded                          | API throttling          |
-
-		| Status Code | Name               | Meaning                               | Common Example         |
-		| ----------- | ------------------ | ------------------------------------- | ---------------------- |
-		| **300**     | Multiple Choices   | Multiple possible responses available | Content negotiation    |
-		| **301**     | Moved Permanently  | Resource permanently moved            | HTTP → HTTPS redirect  |
-		| **302**     | Found              | Resource temporarily moved            | Temporary redirect     |
-		| **303**     | See Other          | Redirect using GET method             | After form submission  |
-		| **304**     | Not Modified       | Cached version can be used            | Browser cache          |
-		| **307**     | Temporary Redirect | Temporary redirect (same method)      | API version switch     |
-		| **308**     | Permanent Redirect | Permanent redirect (same method)      | API endpoint migration |
-
-		| Status Code | Name                       | Meaning                               | Common Example         |
-		| ----------- | -------------------------- | ------------------------------------- | ---------------------- |
-		| **500**     | Internal Server Error      | Generic server failure                | Unhandled exception    |
-		| **501**     | Not Implemented            | Feature not supported                 | API not developed      |
-		| **502**     | Bad Gateway                | Invalid response from upstream server | Microservice failure   |
-		| **503**     | Service Unavailable        | Server temporarily down               | Maintenance / overload |
-		| **504**     | Gateway Timeout            | No response from upstream server      | API timeout            |
-		| **505**     | HTTP Version Not Supported | Protocol version not supported        | Old HTTP version       |
-		| **507**     | Insufficient Storage       | Server out of storage                 | Disk full              |
-
-		| Status Code | Name                          | Description                                   | Typical Usage        |
-		| ----------- | ----------------------------- | --------------------------------------------- | -------------------- |
-		| **200**     | OK                            | Request processed successfully                | GET API success      |
-		| **201**     | Created                       | New resource created successfully             | POST – create user   |
-		| **202**     | Accepted                      | Request accepted but processing not completed | Async processing     |
-		| **203**     | Non-Authoritative Information | Response modified by proxy or cache           | Cached response      |
-		| **204**     | No Content                    | Request successful with no response body      | DELETE operation     |
-		| **205**     | Reset Content                 | Client should reset input form                | Form reset           |
-		| **206**     | Partial Content               | Partial data returned                         | Resume file download |
-
-		| Status Code | Name                | Description                                      | Typical Usage        |
-		| ----------- | ------------------- | ------------------------------------------------ | -------------------- |
-		| **100**     | Continue            | Initial request received, client should continue | Large request body   |
-		| **101**     | Switching Protocols | Server is switching protocols                    | HTTP → WebSocket     |
-		| **102**     | Processing          | Request received, still being processed          | Long-running request |
-		| **103**     | Early Hints         | Server sends hints before final response         | Preload resources    |
-
-
 
 
 
@@ -181,6 +127,10 @@ Path Parameter & Query Parameter:
 						 Appended after ? in URL
 						 /customer?status=active
 						 query param is optional for filtering
+						 
+		Header Parameter - Header parameter carry additional information about the request
+							It is not part of the URL path
+							Commonly used for authentication, content type, and authorization.
 						 
 						 
 Java Collection Framework:
@@ -909,10 +859,12 @@ API (Application Programming Interface):
 		API Testing is a type of testing where we validate the functionality, reliability, performance, and security of APIs without involving the UI.
 		It involves sending requests to the API and verifying the responses such as status codes, response body, headers, and data correctness.
 		
-	API testing difference from UI testing:
-		API testing is faster and more reliable because it doesn’t depend on UI elements
-		API testing helps identify issues early in development, while UI testing is usually done later
-		API Testing is done at the backend level, whereas UI testing is done at the front-end level
+	API testing is important because:
+		It helps identify defects early before the UI is developed.
+		It is faster than UI testing.
+		It is more stable since it is not affected by UI changes.
+		It validates the communication between different systems.
+		It improves overall software quality and reduces testing time.
 		
 	Real-time example: Instead of testing a login through UI, we directly send login API request and validate the response token.
 	
@@ -947,7 +899,15 @@ API (Application Programming Interface):
 			Headers → metadata
 			Response Message → success/error message	
 			
-			
+		While testing an API response, I perform the following validations:
+			Status Code Validation – Verify that the API returns the expected HTTP status code (200, 201, 400, 401, 404, 500, etc.).
+			Response Body Validation – Validate the response data, mandatory fields, data types, values, null values, and business data.
+			Response Header Validation – Verify headers such as Content-Type, Authorization, Cache-Control, and Server.
+			Response Time Validation – Ensure the API responds within the expected time limit.
+			Schema Validation – Check that the response structure matches the API contract or schema.
+			Business Logic Validation – Verify that the API behaves according to the business rules.
+			Database Validation (when applicable) – Ensure the API response matches the data stored in the database.	
+					
 	HTTPs status code are the  part of API response that indicate the result of the request sent by the client to the server
 	It has different categories such as 
 		1xx--> Request was received and the server is continuing the process.
@@ -963,6 +923,106 @@ API (Application Programming Interface):
 		5xx--> Error on the server side. 
 				500 - Internal Error
 				501 - Bad Gateway		
+				
+Rest Vs SOAP:
+------------
+
+	REST
+		Representational State Transfer(REST) is a architectural style used to build webservices.
+		Supports both JSON and XML
+		It is  light weight and flexible
+		Supports HTTP caching
+		Easy to develop and consume
+		Uses HTTP methods (GET, POST, PUT, DELETE, PATCH)
+		Stateless (each request independent)	
+		Widely used in modern web/mobile APIs
+
+	SOAP
+		Simple Object Access Protocol(SOAP) is a protocol used for exchanging structured information
+		Supports  XML
+		It is  heavy weight and follows strict standards
+		Limited or No HTTP caching 
+		Complex to develop and consume
+		Uses XML messaging
+		Can be stateful or stateless
+		Used in banking and enterprise systems
+
+
+				
+				
+Status Codes:
+------------
+						
+		| Status Code |                 Name   | 			Meaning                           | Common Example          |
+		| ----------- | ---------------------- | -------------------------------------------- | ----------------------- |
+		| **400**     | Bad Request            | Invalid request syntax or missing parameters | Wrong JSON body         |
+		| **401**     | Unauthorized           | Authentication failed or missing             | Invalid token           |
+		| **402**     | Payment Required       | Reserved / sometimes used for paid APIs      | Subscription required   |
+		| **403**     | Forbidden              | Access denied even after authentication      | No permission           |
+		| **404**     | Not Found              | Resource does not exist                      | Wrong endpoint          |
+		| **405**     | Method Not Allowed     | HTTP method not supported                    | POST instead of GET     |
+		| **406**     | Not Acceptable         | Response format not supported                | Accept header issue     |
+		| **408**     | Request Timeout        | Client took too long                         | Network delay           |
+		| **415**     | Unsupported Media Type | Unsupported request payload format           | XML instead of JSON     |
+		| **429**     | Too Many Requests      | Rate limit exceeded                          | API throttling          |
+
+		| Status Code | Name               | Meaning                               | Common Example         |
+		| ----------- | ------------------ | ------------------------------------- | ---------------------- |
+		| **300**     | Multiple Choices   | Multiple possible responses available | Content negotiation    |
+		| **301**     | Moved Permanently  | Resource permanently moved            | HTTP → HTTPS redirect  |
+		| **302**     | Found              | Resource temporarily moved            | Temporary redirect     |
+		| **303**     | See Other          | Redirect using GET method             | After form submission  |
+		| **304**     | Not Modified       | Cached version can be used            | Browser cache          |
+		| **307**     | Temporary Redirect | Temporary redirect (same method)      | API version switch     |
+		| **308**     | Permanent Redirect | Permanent redirect (same method)      | API endpoint migration |
+
+		| Status Code | Name                       | Meaning                               | Common Example         |
+		| ----------- | -------------------------- | ------------------------------------- | ---------------------- |
+		| **500**     | Internal Server Error      | Generic server failure                | Unhandled exception    |
+		| **501**     | Not Implemented            | Feature not supported                 | API not developed      |
+		| **502**     | Bad Gateway                | Invalid response from upstream server | Microservice failure   |
+		| **503**     | Service Unavailable        | Server temporarily down               | Maintenance / overload |
+		| **504**     | Gateway Timeout            | No response from upstream server      | API timeout            |
+		| **505**     | HTTP Version Not Supported | Protocol version not supported        | Old HTTP version       |
+		| **507**     | Insufficient Storage       | Server out of storage                 | Disk full              |
+
+		| Status Code | Name                          | Description                                   | Typical Usage        |
+		| ----------- | ----------------------------- | --------------------------------------------- | -------------------- |
+		| **200**     | OK                            | Request processed successfully                | GET API success      |
+		| **201**     | Created                       | New resource created successfully             | POST – create user   |
+		| **202**     | Accepted                      | Request accepted but processing not completed | Async processing     |
+		| **203**     | Non-Authoritative Information | Response modified by proxy or cache           | Cached response      |
+		| **204**     | No Content                    | Request successful with no response body      | DELETE operation     |
+		| **205**     | Reset Content                 | Client should reset input form                | Form reset           |
+		| **206**     | Partial Content               | Partial data returned                         | Resume file download |
+
+		| Status Code | Name                | Description                                      | Typical Usage        |
+		| ----------- | ------------------- | ------------------------------------------------ | -------------------- |
+		| **100**     | Continue            | Initial request received, client should continue | Large request body   |
+		| **101**     | Switching Protocols | Server is switching protocols                    | HTTP → WebSocket     |
+		| **102**     | Processing          | Request received, still being processed          | Long-running request |
+		| **103**     | Early Hints         | Server sends hints before final response         | Preload resources    |
+
+
+				
+HTTP Methods:
+------------
+	Definition:
+		HTTP methods define the operations that can be performed on a resource in a REST API.
+		
+	Types:
+		GET – Retrieves resource information.
+		POST – Creates a new resource.
+		PUT – Updates or replaces an existing resource completely.
+		PATCH – Updates only specific fields of an existing resource.
+		DELETE – Removes a resource.
+		
+	Idempotency:
+		GET, PUT, and DELETE are idempotent.
+		POST is not idempotent.
+		PATCH is generally not guaranteed to be idempotent.	
+		
+		
 Rest Assured:
 ------------
 	Definition:
