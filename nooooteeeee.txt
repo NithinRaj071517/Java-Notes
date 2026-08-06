@@ -941,8 +941,7 @@ API (Application Programming Interface):
 		2xx--> Indicates the success reason 
 				201 - Resource Created
 				200 - Request was successful 
-		3xx--> Indicates redirection
-			
+		3xx--> Indicates redirection	
 		4xx--> Error on the client side
 				400 - Bad request 
 				401 - Unauthorized
@@ -1088,7 +1087,131 @@ Given–When–Then structure in Rest Assured :
 					Response body
 					Headers
 					Response time
+					
+RequestSpecification:
+--------------------
+	Definition:
+		RequestSpecification is an interface , which is used to define and stores all the details of the request before sending it .
+		It contains BaseURI,Authentication, Headers, Query Parameters, Path Parameters, content type and request body.
+		
+Response:
+---------
+	Definition:
+		Response is an interface , which is used to store the response returned by the server after executing the request.
+		It mainly used to read the response body , fetch status code , fetch headers, Extract values for chaining APIs.
 
+ValidatableResponse:
+--------------------
+	Definition:
+		ValidatableResponse is used to validate the API response body .
+		It is obtained after calling then() and mainly used for assertions .
+		
+	Common validations:
+		1. Status code
+		2. Response body
+		3. Response Headers
+		4. Response time 
+		5. Schema validation
+					
+POJO Class:
+----------
+	Definition:
+		POJO class is a simple java class which encapsulates variables or fields, getter , setter methods and even constructor sometimes .
+		Contains only data , without business logic or framework specific annotations.
+		
+	Uses:
+		Reduces hard-coded JSON strings
+		Improves code readability
+		Reusable across tests
+		Type-safe
+		Easy maintenance
+					
+Serialization vs Deserialization:
+---------------------------------
+		Serialization
+			Definition:
+				Serialization is a concept of converting Java Object (POJO) into JSON/XML payload before sending it in an API.
+				RA automatically converts the POJO into JSON using object mapping libraries such as Jackson.
+		
+		Deserialization
+			Definition:
+				Deserialization is a concept of converting JSON/XML response received from the server into Java Object (POJO).
+				RA maps the response fields to the corresponding Java objects.
+				
+Json Path:
+---------
+	Definition:
+		Json path is a query language is used to read,extract and navigate the data  values from a JSON  response.
+		REST Assured uses JSONPath to fetch values from API responses.
+		It is similar to Xpath to XML same as JSONPath for JSON
+		
+API Chaning:
+-----------
+	Definition:
+		API chaining is a process where data from one API response is extracted and used as input for another API request.
+		It widely when API dependent on each other.
+		
+	In my telecom project, during the Port-In process:
+		I trigger the Port-In Request API.
+		The API generates a unique Request ID.
+		Using JSONPath, I extract the Request ID from the response.
+		The extracted Request ID is passed to the Port-In Search API.
+		The Search API returns the current status and details of that Port-In request.
+		I validate the business data and status returned by the API.	
+
+SQL Joins:
+----------
+	Definition:
+		Joins is used to combine data from two more tables based on a related column.
+	
+	Types:
+		1. Inner Join: 
+					Returns only matching records from both tables.
+						
+							SELECT e.EmpId, e.Name, d.DeptName
+							FROM Employee e
+							INNER JOIN Department d
+							ON e.DeptId = d.DeptId;						
+
+		2. Left Join (or) Left Outer Join: 
+					Returns all records from the left table and matching records from the right table.
+					
+						SELECT e.EmpId, e.Name, d.DeptName
+						FROM Employee e
+						LEFT JOIN Department d
+						ON e.DeptId = d.DeptId;
+						
+		3. Right Join (or) Right Outer Join: 
+					Returns all records from the Right table and matching records from the left table.
+					
+						SELECT e.EmpId, e.Name, d.DeptName
+						FROM Employee e
+						RIGHT JOIN Department d
+						ON e.DeptId = d.DeptId;		
+
+		4. Full Outer Join: 
+					Returns matching rows plus non-matching rows from both tables.
+					
+						SELECT e.EmpId, e.Name, d.DeptName
+						FROM Employee e
+						FULL OUTER JOIN Department d
+						ON e.DeptId = d.DeptId;		
+
+		5. Inner Join: 
+					Joining a table with itself.
+					
+						SELECT e.Name AS Employee,
+							   m.Name AS Manager
+						FROM Employee e
+						LEFT JOIN Employee m
+						ON e.ManagerId = m.EmpId;
+						
+		5. Cross Join: 
+					Returns all possible combinations (Cartesian Product).
+					
+						SELECT *
+						FROM Employee e
+						CROSS JOIN Department d;				
 
 Encapsulation:
 --------------
